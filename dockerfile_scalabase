@@ -1,0 +1,5 @@
+FROM ubuntu:latest
+RUN apt-get update
+RUN apt-get install nano
+RUN apt-get install -y iputils-ping
+RUN apt install openjdk-8-jdk -y

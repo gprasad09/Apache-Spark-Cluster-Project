@@ -1,0 +1,9 @@
+services:
+    worker1:
+        image: "gprasad09/sparkbase"
+        ports:
+        - "8081:8081        
+    worker2:
+        image: "gprasad09/sparkbase"    
+        ports:
+        - "8082:8081

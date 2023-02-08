@@ -7,4 +7,4 @@ RUN tar xvf spark-3.3.1-bin-hadoop3.tgz
 RUN mv spark-3.3.1-bin-hadoop3 /usr/local/spark
 RUN rm spark-3.3.1-bin-hadoop3.tgz
 WORKDIR /usr/local/spark
-CMD service ssh start
+CMD service ssh start && bash

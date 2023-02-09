@@ -1,9 +1,20 @@
+version: "3.7"
 services:
-    worker1:
-        image: "gprasad09/sparkbase"
-        ports:
-        - "8081:8081        
-    worker2:
-        image: "gprasad09/sparkbase"    
-        ports:
-        - "8082:8081
+  worker1:
+    container_name: "worker_1"
+    image: "gprasad09/sparkbase:latest"
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t
+    network_mode: "spark-net"
+    hostname: "worker_1"    
+    ports:
+      - "8082:8081"
+  worker2:
+    container_name: "worker_2"
+    image: "gprasad09/sparkbase:latest"
+    network_mode: "spark-net"  
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t    
+    hostname: "worker_2"
+    ports:
+      - "8083:8081"     

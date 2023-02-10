@@ -1,37 +1,25 @@
 version: "3.7"
 services:
-  manager:
-    container_name: "sp-manager"
-    image: "gprasad09/sparkbase:latest"
-    stdin_open: true # docker run -i
-    tty: true        # docker run -t
-    network_mode: "spark-net"
-    hostname: "sp-manager"    
-    ports:
-      - "8080:8080"
-      - "7077:7077"
-    volumes:
-        - ApacheSpark-vol:/usr/share/ApacheSpark/tpch_data
   worker1:
-    container_name: "sp-worker5"
+    container_name: "sp-worker3"
     image: "gprasad09/sparkbase:latest"
     stdin_open: true # docker run -i
     tty: true        # docker run -t
     network_mode: "spark-net"
-    hostname: "sp-worker5"    
+    hostname: "sp-worker3"    
     ports:
-      - "8082:8081"
+      - "8081:8081"
     volumes:
         - ApacheSpark-vol:/usr/share/ApacheSpark/tpch_data
   worker2:
-    container_name: "sp-worker6"
+    container_name: "sp-worker4"
     image: "gprasad09/sparkbase:latest"
     network_mode: "spark-net"
     stdin_open: true # docker run -i
     tty: true        # docker run -t
-    hostname: "sp-worker6"    
+    hostname: "sp-worker4"    
     ports:
-      - "8083:8081"
+      - "8082:8081"
     volumes:
         - ApacheSpark-vol:/usr/share/ApacheSpark/tpch_data
 volumes:

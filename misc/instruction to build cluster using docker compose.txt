@@ -1,0 +1,10 @@
+1. run docker compose for each server
+2. on master server , do configuration 
+   a. ssh key generation (skip if used spark_manager image in compose)
+   b. confiure slave list (skip if used spark_manager image in compose)
+   c. configure spark-env.sh (skip if used spark_manager image in compose)   
+   f.  confiure pyspark on /bashrc in master 
+   g. install pip if missing ( $ apt-get update && apt-get install pip)
+   h. install jupyter in master  ($pip install jupyter)
+     
+3. copy ssh key generated in master and paste in all workers

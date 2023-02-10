@@ -9,8 +9,6 @@ services:
     hostname: "sp-worker3"    
     ports:
       - "8081:8081"
-    volumes:
-        - ApacheSpark-vol:/usr/share/ApacheSpark/tpch_data
   worker2:
     container_name: "sp-worker4"
     image: "gprasad09/sparkbase:latest"
@@ -20,7 +18,5 @@ services:
     hostname: "sp-worker4"    
     ports:
       - "8082:8081"
-    volumes:
-        - ApacheSpark-vol:/usr/share/ApacheSpark/tpch_data
 volumes:
     ApacheSpark-vol:

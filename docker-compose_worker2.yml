@@ -2,7 +2,7 @@ version: "3.7"
 services:
   worker1:
     container_name: "sp-worker3"
-    image: "gprasad09/sparkbase:latest"
+    image: "gprasad09/spark_withuser:latest"
     stdin_open: true # docker run -i
     tty: true        # docker run -t
     network_mode: "spark-net"
@@ -11,12 +11,10 @@ services:
       - "8081:8081"
   worker2:
     container_name: "sp-worker4"
-    image: "gprasad09/sparkbase:latest"
+    image: "gprasad09/spark_withuser:latest"
     network_mode: "spark-net"
     stdin_open: true # docker run -i
     tty: true        # docker run -t
     hostname: "sp-worker4"    
     ports:
       - "8082:8081"
-volumes:
-    ApacheSpark-vol:

@@ -1,0 +1,8 @@
+#This docker file run a layer over gprasad09/sparkbase image to adde a admin user , generate ssh key
+FROM gprasad09/sparkbase:latest
+RUN apt-get update &&  apt-get install -y sudo
+RUN useradd -m admin &&  echo 'admin:admin123' | chpasswd &&   usermod -aG sudo admin
+#USER admin
+RUN ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
+RUN cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+CMD service ssh start && bash

@@ -1,4 +1,4 @@
-FROM gprasad/myscalabase:latest
+FROM gprasad09/scalabase:latest
 RUN apt-get install scala -y
 RUN apt-get install openssh-server openssh-client -y
 COPY spark-3.3.1-bin-hadoop3.tgz /usr/local/

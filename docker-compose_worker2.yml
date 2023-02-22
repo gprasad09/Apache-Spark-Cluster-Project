@@ -3,6 +3,10 @@ services:
   worker1:
     container_name: "sp-worker3"
     image: "gprasad09/spark_withuser:latest"
+    deploy:
+      resources:
+        limits:
+          cpus: '4'      
     stdin_open: true # docker run -i
     tty: true        # docker run -t
     network_mode: "spark-net"
@@ -12,6 +16,10 @@ services:
   worker2:
     container_name: "sp-worker4"
     image: "gprasad09/spark_withuser:latest"
+    deploy:
+      resources:
+        limits:
+          cpus: '4'      
     network_mode: "spark-net"
     stdin_open: true # docker run -i
     tty: true        # docker run -t

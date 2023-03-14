@@ -1,11 +1,10 @@
 #!/bin/bash
+manager=$(./sh_scripts/scripts_swarm/get_manager_id.sh)     #get container id of master
 
 cd ~/Apache-Spark-Cluster-Project/config_files
 
-manager=$(./get_manager_id.sh)                      #get container id of master
+docker cp $manager:/root/.bashrc ./bashrc.tmp               #copy ~/.bashrc from the container to host machine
 
-docker cp $manager:/root/.bashrc ./bashrc.tmp       #copy ~/.bashrc from the container to host machine
+cat pyspark.txt>>bashrc.tmp                                 #append configuration lines for pyspark setting
 
-cat pyspark.txt>>bashrc.tmp                         #append configuration lines for pyspark setting
-
-docker cp ./bashrc.tmp $manager:/root/.bashrc       #restore updated version of ~/.bashrc to master container
+docker cp ./bashrc.tmp $manager:/root/.bashrc               #restore updated version of ~/.bashrc to master container

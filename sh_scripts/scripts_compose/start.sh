@@ -1,5 +1,5 @@
-#!bin/bash
+!bin/bash
 
-docker compose start
+docker compose -f ~/Apache-Spark-Cluster-Project/docker_files/docker-compose_master.yml  start
 
-sh_scripts/start_spark.sh
+~/Apache-Spark-Cluster-Project/sh_scripts/scripts_compose/start_spark.sh

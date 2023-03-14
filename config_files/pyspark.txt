@@ -1,0 +1,5 @@
+
+#Modified by Spark Config
+#add Spark HOME for pyspark
+export SPARK_HOME=/usr/local/spark
+Export PATH=$SPARK_HOME/bin:$PATH

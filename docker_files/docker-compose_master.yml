@@ -16,7 +16,7 @@ services:
     #command: ./sbin/stop-all.sh && ./sbin/start-all.sh
     volumes:
         #- ApacheSpark-vol:/usr/share/ApacheSpark/shared   #mount type =volume
-        - ./data:/usr/share/ApacheSpark/data                #mount type =bind
+        - ~/data:/usr/share/ApacheSpark/data                #mount type =bind
   worker1:
     container_name: "sp-worker5"
     image: "gprasad09/spark_withuser:latest"

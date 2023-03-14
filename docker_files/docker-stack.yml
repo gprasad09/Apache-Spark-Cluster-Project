@@ -17,7 +17,7 @@ services:
     #command: ./sbin/stop-all.sh && ./sbin/start-all.sh
     volumes:
         #- ApacheSpark-vol:/usr/share/ApacheSpark/shared   #mount type =volume
-        - ./data:/usr/share/ApacheSpark/data                #mount type =bind    
+        - ~/data:/usr/share/ApacheSpark/data                #mount type =bind with a folder 'data' created on home directory of host machine   
     deploy:
       mode: replicated
       replicas: 1

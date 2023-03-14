@@ -3,3 +3,7 @@
 #add Spark HOME for pyspark
 export SPARK_HOME=/usr/local/spark
 Export PATH=$SPARK_HOME/bin:$PATH
+
+#Below config line enables jupyter notebook to open if we call pyspark on terminal
+export PYSPARK_DRIVER_PYTHON=jupyter
+export PYSPARK_DRIVER_PYTHON_OPTS='notebook --ip=0.0.0.0 --allow-root --no-browser --port=6060'

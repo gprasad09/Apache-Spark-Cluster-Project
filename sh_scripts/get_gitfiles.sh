@@ -1,4 +1,4 @@
-!bin/bash
+#!bin/bash
 cd
 cd ./docker_repo/docker_composefiles
 

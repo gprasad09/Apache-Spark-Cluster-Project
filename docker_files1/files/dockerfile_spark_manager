@@ -1,0 +1,16 @@
+#This docker file run a layer over gprasad09/sparkbase_user image to make config for manager node
+FROM gprasad09/spark_withuser:latestV1
+
+#Start-Make configuratuon for master
+COPY ./config_files /usr/local/gp_config
+RUN cat /usr/local/gp_config/pyspark.txt>> ~/.bashrc 
+RUN cat /usr/local/gp_config/slaves >>/usr/local/spark/conf/slaves
+WORKDIR /usr/local/spark/conf
+RUN cp spark-env.sh.template spark-env.sh
+RUN cat /usr/local/gp_config/spark_env.txt>> spark-env.sh
+WORKDIR /usr/local/spark
+
+#Install required package for pyspark
+RUN apt-get update && apt-get install pip -y  
+RUN pip install jupyter &&  pip install pandas && pip install pyarrow && pip install findspark
+CMD service ssh start && bash

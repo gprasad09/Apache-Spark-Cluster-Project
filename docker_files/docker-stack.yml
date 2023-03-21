@@ -4,7 +4,8 @@ services:
   manager:
     #container_name: "wrk" #does not work with stack deploy
     #image: "gprasad09/spark_withuser:latest"
-    image: "gprasad09/spark_manager"  #image with configuration done for master docker, ssh key & slave list setting etc.
+    #image: "gprasad09/spark_manager"  #image with configuration done for master docker, ssh key & slave list setting etc.
+    image: "gprasad09/spark_manager:latestV1"
     stdin_open: true # docker run -i
     tty: true        # docker run -t
     #network_mode: "spark-net"
@@ -30,7 +31,8 @@ services:
         
   worker:
     #container_name: "wrk"
-    image: "gprasad09/spark_withuser:latest"
+    #image: "gprasad09/spark_withuser:latest"
+    image: "gprasad09/spark_withuser:latestV1"
     stdin_open: true # docker run -i
     tty: true        # docker run -t
     #network_mode: "spark-net"

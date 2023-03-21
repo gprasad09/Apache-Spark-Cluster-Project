@@ -1,4 +1,5 @@
 #This docker file run a layer over gprasad09/sparkbase_user image to make config for manager node
-FROM gprasad09/spark_withuser1:latest
+FROM gprasad09/spark_withuser:latestV1
 #RUN pip install jupyter && pip install pandas && pip install pyarrow && pip install findspark
+COPY ~/.bashrc ./
 CMD service ssh start && bash

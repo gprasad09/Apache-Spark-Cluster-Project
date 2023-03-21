@@ -1,3 +1,4 @@
+#create base image with JAVA installation
 FROM ubuntu:latest
 RUN apt-get update
 RUN apt-get install nano

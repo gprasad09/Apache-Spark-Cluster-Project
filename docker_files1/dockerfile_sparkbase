@@ -1,7 +1,7 @@
-FROM gprasad09/scalabase:latest
+FROM gprasad09/scalabase1:latest
 RUN apt-get install scala -y
 RUN apt-get install openssh-server openssh-client -y
-COPY spark-3.3.1-bin-hadoop3.tgz /usr/local/
+COPY spark-3.3.1-bin-hadoop3.tgz /usr/local/  # Make sure you have downloaded spark .tgz from Apache.org
 WORKDIR /usr/local
 RUN tar xvf spark-3.3.1-bin-hadoop3.tgz
 RUN mv spark-3.3.1-bin-hadoop3 /usr/local/spark

@@ -1,0 +1,47 @@
+version: "3.7"
+services:
+  manager:
+    container_name: "sp-manager"
+    #image: "gprasad09/spark_withuser:latest"
+    image: "gprasad09/spark_manager"  #image with configuration done for master docker, ssh key & slave list setting etc.
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t
+    network_mode: "spark-net"
+    hostname: "sp-manager"
+    ports:
+      - "8080:8080"
+      - "7077:7077"
+      - "8888:8888"
+    working_dir: /usr/local/spark
+    #command: ./sbin/stop-all.sh && ./sbin/start-all.sh
+    volumes:
+        #- ApacheSpark-vol:/usr/share/ApacheSpark/shared   #mount type =volume
+        - ~/data:/usr/share/ApacheSpark/data                #mount type =bind
+  worker1:
+    container_name: "sp-worker5"
+    image: "gprasad09/spark_withuser:latest"
+    deploy:
+      resources:
+        limits:
+          cpus: '4'      
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t
+    network_mode: "spark-net"
+    hostname: "sp-worker5"     
+    ports:
+      - "8082:8081"    
+  worker2:
+    container_name: "sp-worker6"
+    image: "gprasad09/spark_withuser:latest"
+    deploy:
+      resources:
+        limits:
+          cpus: '4'      
+    network_mode: "spark-net"
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t
+    hostname: "sp-worker6"        
+    ports:
+      - "8083:8081"    
+#volumes:
+#    ApacheSpark-vol:  #mount type =volume

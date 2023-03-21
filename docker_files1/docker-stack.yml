@@ -1,0 +1,48 @@
+version: '3.9'
+
+services:
+  manager:
+    #container_name: "wrk" #does not work with stack deploy
+    #image: "gprasad09/spark_withuser:latest"
+    image: "gprasad09/spark_manager"  #image with configuration done for master docker, ssh key & slave list setting etc.
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t
+    #network_mode: "spark-net"
+    hostname: "sp-manager"   
+    ports:
+      - "8080:8080"
+      - "7077:7077"
+      - "8888:8888"
+    working_dir: /usr/local/spark
+    #command: ./sbin/stop-all.sh && ./sbin/start-all.sh
+    volumes:
+        #- ApacheSpark-vol:/usr/share/ApacheSpark/shared   #mount type =volume
+        - ~/data:/usr/share/ApacheSpark/data                #mount type =bind with a folder 'data' created on home directory of host machine   
+    deploy:
+      mode: replicated
+      replicas: 1
+      placement:
+        max_replicas_per_node: 1  
+        constraints:
+          - "node.role==manager"        
+      restart_policy:
+        condition: on-failure
+        
+  worker:
+    #container_name: "wrk"
+    image: "gprasad09/spark_withuser:latest"
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t
+    #network_mode: "spark-net"
+    #hostname: "worker-{{.Task.Slot}}-{{.Node.Hostname}}"   
+    hostname: "sp-worker{{.Task.Slot}}"   
+    deploy:
+      mode: replicated
+      replicas: 6
+      placement:
+        max_replicas_per_node: 2
+      resources:
+        limits:  
+          cpus: "4"
+      restart_policy:
+        condition: on-failure

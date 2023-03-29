@@ -13,4 +13,5 @@ WORKDIR /usr/local/spark
 #Install required package for pyspark
 RUN apt-get update && apt-get install pip -y  
 RUN pip install jupyter &&  pip install pandas && pip install pyarrow && pip install findspark
+RUN pip install matplotlib && pip install seaborn
 CMD service ssh start && bash

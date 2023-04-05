@@ -12,7 +12,7 @@ services:
     hostname: "sp-manager"   
     ports:
       - "8080:8080"
-      - "7077:7077"
+      - "7077:7077"    
       - "8888:8888"
       - "4040:4040"
     working_dir: /usr/local/spark

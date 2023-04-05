@@ -35,7 +35,7 @@ services:
     tty: true        # docker run -t
     #network_mode: "spark-net"
     #hostname: "worker-{{.Task.Slot}}-{{.Node.Hostname}}"   
-    hostname: "sp-worker{{.Task.Slot}}"   
+    hostname: "sp-worker{{.Task.Slot}}"        
     deploy:
       mode: replicated
       replicas: 6

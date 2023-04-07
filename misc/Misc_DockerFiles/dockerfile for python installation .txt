@@ -1,0 +1,24 @@
+FROM ubuntu:latest
+RUN apt-get update && apt upgrade -y
+RUN apt-get install nano
+RUN apt-get install python3 -y
+RUN apt-get install python3-pip -y
+RUN apt install python3.10-venv -y
+RUN python3 -m venv myVirtualEnv
+RUn pip install numpy && pip install pandas && pip install opencv-python
+
+
+======================need to work on creation of env like below
+
+FROM ubuntu:latest
+RUN apt-get update && apt upgrade -y
+RUN apt-get install nano
+RUN apt-get install python3 -y
+RUN apt-get install python3-pip -y
+RUN apt install python3.10-venv -y
+RUN python3 -m venv myVirtualEnv
+CMD source myVirtualEnv/bin/activate && pip install numpy && bash
+
+
+&& pip install pandas && pip install opencv-python
+RUN 

@@ -1,0 +1,7 @@
+FROM ubuntu:latest
+
+RUN apt-get update &&  apt-get install -y sudo
+
+RUN useradd -m <username> &&  echo '<username>:<password>' | chpasswd &&   usermod -aG sudo <username>
+
+USER <username>

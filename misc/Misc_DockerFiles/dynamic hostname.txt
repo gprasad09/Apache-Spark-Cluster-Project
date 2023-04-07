@@ -1,0 +1,1 @@
+hostname: "{{ if eq .Task.Slot \"1\" }}ONE-{{ else }}TWO-{{ end }}"

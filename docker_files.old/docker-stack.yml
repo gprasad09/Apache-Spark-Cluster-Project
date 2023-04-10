@@ -4,15 +4,17 @@ services:
   manager:
     #container_name: "wrk" #does not work with stack deploy
     #image: "gprasad09/spark_withuser:latest"
-    image: "gprasad09/spark_manager"  #image with configuration done for master docker, ssh key & slave list setting etc.
+    #image: "gprasad09/spark_manager"  #image with configuration done for master docker, ssh key & slave list setting etc.
+    image: "gprasad09/spark_manager:latestV1"
     stdin_open: true # docker run -i
     tty: true        # docker run -t
     #network_mode: "spark-net"
     hostname: "sp-manager"   
     ports:
       - "8080:8080"
-      - "7077:7077"
+      - "7077:7077"    
       - "8888:8888"
+      - "4040:4040"
     working_dir: /usr/local/spark
     #command: ./sbin/stop-all.sh && ./sbin/start-all.sh
     volumes:
@@ -30,12 +32,13 @@ services:
         
   worker:
     #container_name: "wrk"
-    image: "gprasad09/spark_withuser:latest"
+    #image: "gprasad09/spark_withuser:latest"
+    image: "gprasad09/spark_withuser:latestV1"
     stdin_open: true # docker run -i
     tty: true        # docker run -t
     #network_mode: "spark-net"
     #hostname: "worker-{{.Task.Slot}}-{{.Node.Hostname}}"   
-    hostname: "sp-worker{{.Task.Slot}}"        
+    hostname: "sp-worker{{.Task.Slot}}"   
     deploy:
       mode: replicated
       replicas: 6

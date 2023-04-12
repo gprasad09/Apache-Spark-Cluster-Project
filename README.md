@@ -39,7 +39,7 @@ $ ./start.sh
 
 <b>Step 3</b>: Launch Jupyter notebook
 ```bash
-$ ./Jupyter.sh
+$ ./jupyter.sh
 ```
 
 <b>Step 4</b>: Execute port forward command so that you can access Spark UI and Jupyter on your local machine.

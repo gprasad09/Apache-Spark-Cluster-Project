@@ -6,7 +6,7 @@
 
 ## Description
 
-This repository contains instructions to install ApacheSpark cluster using docker containers.
+This repository contains all the artifacts and instructions to install ApacheSpark cluster using docker containers.
 Following sections explain steps to build the Apache Spark cluster using this repository.
 
 ## How to run
